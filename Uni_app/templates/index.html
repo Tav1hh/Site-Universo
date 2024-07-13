@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>Principal</title>
+    <style>
+        body{
+            height:100vh;
+            background: gray url('https://wallpapercave.com/wp/wp13293242.png') center bottom no-repeat fixed;
+            background-size: cover;
+            margin: 0%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            text-align: center;
+            padding-top: 8px;
+            background-color: black;
+            color: white;
+            min-height: 70px;
+        }
+        header .container{
+            width: 100%; /* Largura total do contêiner visível */
+            overflow: hidden;
+            overflow-x: auto; /* Rolagem horizontal automática */
+            scrollbar-width: 1px;
+            white-space: nowrap; /* Impede que o conteúdo quebre em várias linhas */
+    
+        }
+        header .container p{
+            margin-bottom: 0px;
+            background-color: rgb(67, 58, 58);
+            padding: 2px 6px;
+            display: inline;
+            border-radius: 8px 8px 0px 0px;
+        }
+        header h1 a{
+            color: white;
+            text-decoration: none;
+        }
+        header h1 a:hover{
+            transition: 1s;
+            color: gray;
+        }
+        p a{
+            text-decoration: none;
+            color: white;
+        }
+        main{
+            box-shadow: 0px 1px 4px black;
+            border: 1px solid black;
+            padding: 6px;
+            border-radius: 0px 0px 8px 8px;
+            text-align: center;
+            min-width: 300px;
+            width: 100%;
+            margin: 0px 100px;
+            background-color: rgb(73, 51, 51);
+        }
+        main p{
+            text-align: justify;
+        }
+        section{
+            background-color: rgb(167, 89, 89);
+            border-radius: 0px 0px 8px 8px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 5px black inset;
+        }
+         section p{
+            padding: 8px;
+
+        }
+        .imagem{
+            margin: 0px;
+            padding: 0px;
+            background-position: center center;
+            background-attachment:fixed;
+            background-size:cover;
+            width:298px;
+        }
+        footer{
+            font-size: 10px;
+            text-align: center;
+            color: white;
+            padding: 10px;
+        }
+        .principal{
+            display: flex;
+            justify-content: center;
+        }
+        .cards{
+            margin: 0px;
+            margin-top: 150px;
+        }
+        .cards p{
+            padding: 5px;
+            border-radius: 0px 8px 8px 0px;
+            background-color: rgb(67, 58, 58);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="/admin">Úniverso Ludico</a></h1>
+
+        <div class="container">
+            <div class="content">
+                {%for hist in historys%}
+                <p><a href="{% url 'hist' hist.id %}">{{hist}}</a></p>
+                {%empty%}
+                {%endfor%}
+            </div>
+        </div>
+        
+    </header>
+    <div class="principal">
+        {%block content%}
+        <main>
+            <h2>Titulo</h2>
+            <hr>
+            <section>
+                <p>Selecione uma Historia</p>
+            </section>
+        </main>{%endblock content%}
+    </div>
+    <footer><p>Site Criado por &copy;Santiago e &copy;Danilo</p></footer>
+</body>
+</html>
